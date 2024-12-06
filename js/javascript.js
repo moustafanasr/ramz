@@ -4,10 +4,10 @@ const supHeader = document.querySelector('.section-main-sup-header .section-main
 
 // Define transform limits for different breakpoints
 const transformLimits = {
-  xs: -419, // Max-width 430px
-  sm: -419, // Min-width 430px and max-width 600px
-  md: -419, // Min-width 601px and max-width 767px
-  lg: -440, // Min-width 768px and max-width 991px
+  xs: -460, // Max-width 430px
+  sm: -460, // Min-width 430px and max-width 600px
+  md: -460, // Min-width 601px and max-width 767px
+  lg: -460, // Min-width 768px and max-width 991px
   xl: -482, // Min-width 992px and max-width 1199px
   xxl: -482 // Min-width 1200px and above
 };
