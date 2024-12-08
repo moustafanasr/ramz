@@ -286,3 +286,266 @@ function addAnimation() {
     });
   });
 }
+
+
+
+// Select all elements with the class "number1"
+const numbers = document.querySelectorAll('.number1');
+
+const animateNumbers = (entries, observer) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      const numberElement = entry.target;
+      const finalValue = parseInt(numberElement.textContent.replace(/[^\d]/g, ''), 10); // Extract the number
+      let currentValue = 0;
+
+      // Animate the number from 0 to the final value
+      const increment = Math.ceil(finalValue / 100); // Define increment steps
+      const interval = setInterval(() => {
+        currentValue += increment;
+        if (currentValue >= finalValue) {
+          currentValue = finalValue;
+          clearInterval(interval);
+        }
+        numberElement.textContent = `+${currentValue.toLocaleString()}`; // Update the content
+      }, 20);
+
+      // Stop observing the element once animation is done
+      observer.unobserve(numberElement);
+    }
+  });
+};
+
+// Set up the IntersectionObserver
+const observer = new IntersectionObserver(animateNumbers, {
+  threshold: 0.5, // Trigger when 50% of the element is visible
+});
+
+// Observe each number element
+numbers.forEach((number) => observer.observe(number));
+
+
+
+
+
+
+document.addEventListener('click', (event) => {
+  console.log(`Mouse position: X = ${event.clientX}, Y = ${event.clientY}`);
+});
+
+
+
+
+// const img = document.querySelector('.section-service .div-video .video-container #sasa');
+// console.log(img.src)
+
+
+
+const content = [
+  { src: "img/image1.jpg", title: "يُسر فيلج", history: "12-3-2020", paragraph: "حي السلامة", link: "link1" },
+  { src: "img/image2.jpg", title: "جديل", history: "12-3-2020", paragraph: "حي النرجس", link: "link2" },
+  { src: "img/image3.jpg", title: "ستون كومبليكس", history: "12-3-2020", paragraph: "حي العقيق", link: "link3" },
+  { src: "img/news1.jpeg", title: "رمز 45", history: "12-3-2020", paragraph: "حي الشبيلي", link: "link4" },
+  { src: "img/news2.png", title: "رمز المعالي", history: "12-3-2020", paragraph: "حي المعالي", link: "link5" },
+  { src: "img/news3.png", title: "تَلّ الرمال 2", history: "12-3-2020", paragraph: "حي الرمال", link: "link6" },
+  { src: "img/news4.png", title: "رافــد - مجمع مكتبي", history: "12-3-2020", paragraph: "حي حطين", link: "link7" },
+  { src: "img/RamzPlaceholderDark.svg", title: "رافــد - مجمع مكتبي", history: "12-3-2020", paragraph: "حي حطين", link: "link8" },
+];
+
+// Select all video containers
+const videocontainers = document.querySelectorAll('.about-left .div-video');
+
+// Iterate over each video container
+videocontainers.forEach((div, index) => {
+  const img = div.querySelector('img');
+  const title = div.querySelector('.items-details #title');
+  const history = div.querySelector('.items-details #history');
+  const paragraph = document.querySelector('.section-service .about-right .about-line2 #paragraph');
+  const mainTitle = document.querySelector('.section-service .about-right .about-line2 #mainTitle');
+
+  if (img && title && history && paragraph && mainTitle) {
+    let itemIndex = index; // Track the current index
+    let translateX = 0; // Current translateX value
+    let lastMouseX = 0; // Last X-coordinate of the mouse
+    let isDragging = false; // Dragging state
+
+    // Function to update content based on the current index
+    const updateContent = () => {
+      const item = content[itemIndex];
+      img.src = item.src;
+      title.textContent = item.title;
+      history.textContent = item.history;
+      paragraph.textContent = item.paragraph;
+      mainTitle.textContent = item.title;
+    };
+
+    // Initialize the content for the current div
+    updateContent();
+
+    // const serviceMouse = document.querySelector('.section-service .about-left');
+
+    // // Mouse down event
+    // serviceMouse.addEventListener('mousedown', (event) => {
+    //   isDragging = true;
+    //   lastMouseX = event.clientX; // Record starting mouse position
+    //   // Mouse move event
+    //   serviceMouse.addEventListener('mousemove', (event) => {
+    //     if (isDragging) {
+    //       console.log(event.clientX, lastMouseX)
+    //       // console.log()
+    //       // console.log(Math.floor(lastMouseX / 100))
+    //       if (event.clientX > lastMouseX) {
+    //         console.log("good")
+    //         const potentialIndex = index + 1;
+    //         console.log(potentialIndex)
+    //         const currentIndexInArray = potentialIndex * 100
+    //         console.log(currentIndexInArray)
+
+    //         if (potentialIndex >= 0 && potentialIndex < content.length) {
+    //           itemIndex = potentialIndex;
+    //           updateContent(); // Update the displayed content
+    //         }
+    //         div.style.transform = `translateX(${currentIndexInArray}%)`; // Update the element's transform
+    //       }
+    //       else {
+    //         console.log("fail")
+    //         const potentialIndex = index - 1;
+    //         const currentIndexInArray = potentialIndex * 100
+    //         console.log(currentIndexInArray)
+    //         if (potentialIndex >= 0 && potentialIndex < content.length) {
+    //           itemIndex = potentialIndex;
+    //           updateContent();
+    //         }
+    //         div.style.transform = `translateX(-${currentIndexInArray}%)`; // Update the element's transform
+    //       }
+    //     }
+    //   });
+    // });
+    // // Mouse up event
+    // document.addEventListener('mouseup', () => {
+    //   isDragging = false; // Reset dragging state
+    // });
+  }
+});
+
+
+
+
+
+let loops = gsap.utils.toArray('.section-service .about-left .div-video').map((line, i) => {
+  const links = line.querySelectorAll(".section-service .about-left .div-video"),
+    tickerDirection = isEven(i),
+    tl = horizontalLoop(links, {
+      repeat: -1,
+      speed: 1 + i * 0.25,
+      draggable: true,
+      reversed: tickerDirection,
+      paddingRight: parseFloat(gsap.getProperty(links[0], "marginRight", "px"))
+    });
+  links.forEach(link => {
+    link.addEventListener("mouseenter", () => gsap.to(tl, { timeScale: 0, overwrite: true }));
+    link.addEventListener("mouseleave", () => gsap.to(tl, { timeScale: 1, overwrite: true }));
+  });
+});
+
+let currentScroll = 0;
+let scrollDirection = 1;
+
+function isEven(n) {
+  return n % 2 == 0;
+}
+
+function horizontalLoop(items, config) {
+  items = gsap.utils.toArray(items);
+  config = config || {};
+  let tl = gsap.timeline({ repeat: config.repeat, paused: config.paused, defaults: { ease: "none" }, onReverseComplete: () => tl.totalTime(tl.rawTime() + tl.duration() * 100) }),
+    length = items.length,
+    startX = items[0].offsetLeft,
+    times = [],
+    widths = [],
+    xPercents = [],
+    curIndex = 0,
+    pixelsPerSecond = (config.speed || 1) * 100,
+    snap = config.snap === false ? v => v : gsap.utils.snap(config.snap || 1), // some browsers shift by a pixel to accommodate flex layouts, so for example if width is 20% the first element's width might be 242px, and the next 243px, alternating back and forth. So we snap to 5 percentage points to make things look more natural
+    populateWidths = () => items.forEach((el, i) => {
+      widths[i] = parseFloat(gsap.getProperty(el, "width", "px"));
+      xPercents[i] = snap(parseFloat(gsap.getProperty(el, "x", "px")) / widths[i] * 100 + gsap.getProperty(el, "xPercent"));
+    }),
+    getTotalWidth = () => items[length - 1].offsetLeft + xPercents[length - 1] / 100 * widths[length - 1] - startX + items[length - 1].offsetWidth * gsap.getProperty(items[length - 1], "scaleX") + (parseFloat(config.paddingRight) || 0),
+    totalWidth, curX, distanceToStart, distanceToLoop, item, i;
+  populateWidths();
+  gsap.set(items, { // convert "x" to "xPercent" to make things responsive, and populate the widths/xPercents Arrays to make lookups faster.
+    xPercent: i => xPercents[i]
+  });
+  gsap.set(items, { x: 0 });
+  totalWidth = getTotalWidth();
+  for (i = 0; i < length; i++) {
+    item = items[i];
+    curX = xPercents[i] / 100 * widths[i];
+    distanceToStart = item.offsetLeft + curX - startX;
+    distanceToLoop = distanceToStart + widths[i] * gsap.getProperty(item, "scaleX");
+    tl.to(item, { xPercent: snap((curX - distanceToLoop) / widths[i] * 100), duration: distanceToLoop / pixelsPerSecond }, 0)
+      .fromTo(item, { xPercent: snap((curX - distanceToLoop + totalWidth) / widths[i] * 100) }, { xPercent: xPercents[i], duration: (curX - distanceToLoop + totalWidth - curX) / pixelsPerSecond, immediateRender: false }, distanceToLoop / pixelsPerSecond)
+      .add("label" + i, distanceToStart / pixelsPerSecond);
+    times[i] = distanceToStart / pixelsPerSecond;
+  }
+  function toIndex(index, vars) {
+    vars = vars || {};
+    (Math.abs(index - curIndex) > length / 2) && (index += index > curIndex ? -length : length); // always go in the shortest direction
+    let newIndex = gsap.utils.wrap(0, length, index),
+      time = times[newIndex];
+    if (time > tl.time() !== index > curIndex) { // if we're wrapping the timeline's playhead, make the proper adjustments
+      vars.modifiers = { time: gsap.utils.wrap(0, tl.duration()) };
+      time += tl.duration() * (index > curIndex ? 1 : -1);
+    }
+    curIndex = newIndex;
+    vars.overwrite = true;
+    return tl.tweenTo(time, vars);
+  }
+  tl.next = vars => toIndex(curIndex + 1, vars);
+  tl.previous = vars => toIndex(curIndex - 1, vars);
+  tl.current = () => curIndex;
+  tl.toIndex = (index, vars) => toIndex(index, vars);
+  tl.updateIndex = () => curIndex = Math.round(tl.progress() * (items.length - 1));
+  tl.times = times;
+  tl.progress(1, true).progress(0, true); // pre-render for performance
+  if (config.reversed) {
+    tl.vars.onReverseComplete();
+    tl.reverse();
+  }
+  if (config.draggable && typeof (Draggable) === "function") {
+    let proxy = document.createElement("div"),
+      wrap = gsap.utils.wrap(0, 1),
+      ratio, startProgress, draggable, dragSnap, roundFactor,
+      align = () => tl.progress(wrap(startProgress + (draggable.startX - draggable.x) * ratio)),
+      syncIndex = () => tl.updateIndex();
+    typeof (InertiaPlugin) === "undefined" && console.warn("InertiaPlugin required for momentum-based scrolling and snapping. https://greensock.com/club");
+    draggable = Draggable.create(proxy, {
+      trigger: items[0].parentNode,
+      type: "x",
+      onPress() {
+        startProgress = tl.progress();
+        tl.progress(0);
+        populateWidths();
+        totalWidth = getTotalWidth();
+        ratio = 1 / totalWidth;
+        dragSnap = totalWidth / items.length;
+        roundFactor = Math.pow(10, ((dragSnap + "").split(".")[1] || "").length);
+        tl.progress(startProgress);
+      },
+      onDrag: align,
+      onThrowUpdate: align,
+      inertia: true,
+      snap: value => {
+        let n = Math.round(parseFloat(value) / dragSnap) * dragSnap * roundFactor;
+        return (n - n % 1) / roundFactor;
+      },
+      onRelease: syncIndex,
+      onThrowComplete: () => gsap.set(proxy, { x: 0 }) && syncIndex()
+    })[0];
+  }
+
+  return tl;
+}
+
+
