@@ -383,13 +383,13 @@
         </div>
         <div class="about-left">
           <div class="div-video">
-            <video class="custom-video" autoplay muted loop playsinline>
+            <video class="custom-video animate1" autoplay muted loop playsinline>
               <source src="./video/video2.mp4">
               Your browser does not support the video tag.
             </video>
           </div>
           <div class="div-video">
-            <video class="custom-video" autoplay muted loop playsinline>
+            <video class="custom-video animate2" autoplay muted loop playsinline>
               <source src="./video/video1.mp4">
               Your browser does not support the video tag.
             </video>
@@ -607,8 +607,12 @@
         // Optional parameters
         direction: 'horizontal',
         loop: true,
-        speed:1000,
+        speed: 1000,
         // slidesPerView: 1,
+        autoplay: {
+          delay: 2500,
+          disableOnInteraction: false,
+        },
 
         // Responsive breakpoints
         breakpoints: {

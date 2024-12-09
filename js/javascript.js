@@ -298,7 +298,7 @@ function adjustScrollEffect() {
     const sectionHeight = section.offsetHeight;
     const scrollY = window.scrollY;
 
-    if (scrollY >= (sectionTop -1000) && scrollY <= (sectionTop +1000) + sectionHeight) {
+    if (scrollY >= (sectionTop - 1000) && scrollY <= (sectionTop + 1000) + sectionHeight) {
       // Calculate the percentage scrolled within the section
       const progress = (scrollY - sectionTop) / sectionHeight;
       console.log(progress)
@@ -306,7 +306,7 @@ function adjustScrollEffect() {
       // const translateXLeft = Math.min(0, -10 - 10 * progress); // From -10% to 0%
 
       // const translateXRight = Math.max(-150, -150 + 140 * progress); // From -150% to -10%
-      const translateXRight = Math.max(-200, -10 - 40 * progress); // From -10% to -200%
+      const translateXRight = Math.max(-200, -50 - 40 * progress); // From -10% to -200%
       const translateXLeft = Math.max(-200, -200 + 40 * progress); // From -200% to -10%
 
       scrollerRight.style.transform = `translateX(${translateXRight}%)`;
@@ -318,6 +318,21 @@ function adjustScrollEffect() {
 }
 
 
+const section = document.querySelector(".section-about");
+const videoRghtToLeft1 = section.querySelector('.section-about .about-left .div-video .animate1');
+const videoRghtToLeft2 = section.querySelector('.section-about .about-left .div-video .animate2');
+
+window.addEventListener("scroll", () => {
+  const sectionTop = section.offsetTop;
+  // const sectionHeight = section.offsetHeight;
+  const scrollY = window.scrollY;
+
+  if (scrollY >= (sectionTop - 900)) {
+    console.log("Section About");
+    videoRghtToLeft1.style.animation = "move 1s ease-out forwards"; // Apply animation to the first element
+    videoRghtToLeft2.style.animation = "move 1s ease-out forwards"; // Apply animation to the second element
+  } 
+});
 
 
 // Select all elements with the class "number1"
