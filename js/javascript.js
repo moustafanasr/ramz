@@ -121,141 +121,210 @@ window.addEventListener('scroll', () => {
 
 
 
-// Correctly structured array of image objects
-const images = [
-  {
-    src: "img/1.jpg",
-    title: "يُسر فيلج",
-    supTitle1: "شقق سكنية",
-    supTitle2: "حي السلامة",
-    link: "link1",
-  },
-  {
-    src: "img/2.jpg",
-    title: "جديل",
-    supTitle1: "أدوار سكنية",
-    supTitle2: "حي النرجس",
-    link: "link2",
-  },
-  {
-    src: "img/3.jpg",
-    title: "ستون كومبليكس",
-    supTitle1: "شقق سكنية",
-    supTitle2: "حي العقيق",
-    link: "link3",
-  },
-  {
-    src: "img/4.jpg",
-    title: "رمز 45",
-    supTitle1: "شقق سكنية",
-    supTitle2: "حي الشبيلي",
-    link: "link4",
-  },
-  {
-    src: "img/5.jpg",
-    title: "رمز المعالي",
-    supTitle1: "فلل سكنية",
-    supTitle2: "حي المعالي",
-    link: "link5",
-  },
-  {
-    src: "img/6.jpg",
-    title: "تَلّ الرمال 2",
-    supTitle1: "شقق سكنية",
-    supTitle2: "حي الرمال",
-    link: "link6",
-  },
-  {
-    src: "img/7.jpg",
-    title: "رافــد - مجمع مكتبي",
-    supTitle1: "مكاتب",
-    supTitle2: "حي حطين",
-    link: "link7",
-  },
-];
+// // Correctly structured array of image objects
+// const images = [
+//   {
+//     src: "img/1.jpg",
+//     title: "يُسر فيلج",
+//     supTitle1: "شقق سكنية",
+//     supTitle2: "حي السلامة",
+//     link: "link1",
+//   },
+//   {
+//     src: "img/2.jpg",
+//     title: "جديل",
+//     supTitle1: "أدوار سكنية",
+//     supTitle2: "حي النرجس",
+//     link: "link2",
+//   },
+//   {
+//     src: "img/3.jpg",
+//     title: "ستون كومبليكس",
+//     supTitle1: "شقق سكنية",
+//     supTitle2: "حي العقيق",
+//     link: "link3",
+//   },
+//   {
+//     src: "img/4.jpg",
+//     title: "رمز 45",
+//     supTitle1: "شقق سكنية",
+//     supTitle2: "حي الشبيلي",
+//     link: "link4",
+//   },
+//   {
+//     src: "img/5.jpg",
+//     title: "رمز المعالي",
+//     supTitle1: "فلل سكنية",
+//     supTitle2: "حي المعالي",
+//     link: "link5",
+//   },
+//   {
+//     src: "img/6.jpg",
+//     title: "تَلّ الرمال 2",
+//     supTitle1: "شقق سكنية",
+//     supTitle2: "حي الرمال",
+//     link: "link6",
+//   },
+//   {
+//     src: "img/7.jpg",
+//     title: "رافــد - مجمع مكتبي",
+//     supTitle1: "مكاتب",
+//     supTitle2: "حي حطين",
+//     link: "link7",
+//   },
+// ];
 
-// Select image elements and titles
-const containers = Array.from(document.querySelectorAll('.scroll-horizontal .div-img img'));
-const titles = Array.from(document.querySelectorAll('.scroll-horizontal .horizontal-title'));
-const supTitles1 = Array.from(document.querySelectorAll('.scroll-horizontal .details .div-line-button .supTitle1'));
-const supTitles2 = Array.from(document.querySelectorAll('.scroll-horizontal .details .div-line-button .supTitle2'));
+// // Select image elements and titles
+// const containers = Array.from(document.querySelectorAll('.scroll-horizontal .div-img img'));
+// const titles = Array.from(document.querySelectorAll('.scroll-horizontal .horizontal-title'));
+// const supTitles1 = Array.from(document.querySelectorAll('.scroll-horizontal .details .div-line-button .supTitle1'));
+// const supTitles2 = Array.from(document.querySelectorAll('.scroll-horizontal .details .div-line-button .supTitle2'));
 
-// Ensure elements exist
-if (!containers.length || !titles.length || !supTitles1.length || !supTitles2.length) {
-  console.error('One or more containers, titles, or supTitle elements are missing. Please check your HTML.');
+// // Ensure elements exist
+// if (!containers.length || !titles.length || !supTitles1.length || !supTitles2.length) {
+//   console.error('One or more containers, titles, or supTitle elements are missing. Please check your HTML.');
+// }
+
+// // Set initial images, titles, and supTitles
+// const setInitialContent = () => {
+//   containers.forEach((container, index) => {
+//     container.src = images[index % images.length].src;
+//   });
+
+//   titles.forEach((title, index) => {
+//     title.textContent = images[index % images.length].title;
+//   });
+
+//   supTitles1.forEach((supTitle, index) => {
+//     supTitle.textContent = images[index % images.length].supTitle1;
+//   });
+
+//   supTitles2.forEach((supTitle, index) => {
+//     supTitle.textContent = images[index % images.length].supTitle2;
+//   });
+// };
+
+// setInitialContent();
+
+// // Trigger enter animations
+// const triggerEnterAnimations = (element) => {
+//   element.classList.remove('scale-up-remove', 'slideRight-remove');
+//   element.classList.add('scale-up', 'slideRight');
+// };
+
+// // Trigger leave animations
+// const triggerLeaveAnimations = (element) => {
+//   element.classList.remove('scale-up', 'slideRight');
+//   element.classList.add('scale-up-remove', 'slideRight-remove');
+// };
+
+// // Current index for tracking the displayed images
+// let currentIndex = 0;
+
+// // Function to shift images, titles, and supTitles
+// const shift = () => {
+//   const nextIndex = (currentIndex + 1) % images.length;
+
+//   // Trigger animations for leaving images
+//   containers.forEach(triggerLeaveAnimations);
+
+//   // Delay updating the images, titles, and supTitles for smooth transitions
+//   setTimeout(() => {
+//     containers.forEach((container, index) => {
+//       container.src = images[(nextIndex + index) % images.length].src;
+//     });
+
+//     titles.forEach((title, index) => {
+//       title.textContent = images[(nextIndex + index) % images.length].title;
+//     });
+
+//     supTitles1.forEach((supTitle, index) => {
+//       supTitle.textContent = images[(nextIndex + index) % images.length].supTitle1;
+//     });
+
+//     supTitles2.forEach((supTitle, index) => {
+//       supTitle.textContent = images[(nextIndex + index) % images.length].supTitle2;
+//     });
+
+//     // Trigger animations for entering images
+//     containers.forEach(triggerEnterAnimations);
+
+//     // Update current index
+//     currentIndex = nextIndex;
+//   }, 500); // Adjust delay for your animation duration
+// };
+
+// // Call the shift function every 3 seconds
+// setInterval(shift, 3000);
+
+
+
+// Function to update the clone-details based on the active slide
+function updateCloneDetails() {
+  // Find all elements with the class "swiper-slide" within ".swiper1"
+  const slides = Array.from(document.querySelectorAll('.swiper1 .swiper-slide'));
+
+  slides.forEach((slide, index) => {
+    // Check if the slide is active
+    if (slide.classList.contains('swiper-slide-active')) {
+      // Calculate indices for adjacent slides
+      const nextIndex = (index + 1) % slides.length; // Wrap around for overflow
+      const secondPrevIndex = (index + 2 + slides.length) % slides.length; // Wrap around for underflow
+      const thirdNextIndex = (index + 3) % slides.length; // Wrap around for overflow
+
+      // Log indices (for debugging)
+      console.log('Active Index:', index);
+      console.log('Next Index:', nextIndex);
+      console.log('Second Previous Index:', secondPrevIndex);
+      console.log('Third Next Index:', thirdNextIndex);
+
+      // Extract titles from adjacent slides
+      const nextSlideTitle = slides[nextIndex]?.querySelector('.horizontal-title')?.textContent || '';
+      const secondPrevSlideTitle = slides[secondPrevIndex]?.querySelector('.horizontal-title')?.textContent || '';
+      const thirdNextSlideTitle = slides[thirdNextIndex]?.querySelector('.horizontal-title')?.textContent || '';
+
+      // Update clone elements
+      const clone1HorizontalTitle = document.querySelector('.clone1-horizontal-title');
+      const clone2HorizontalTitle = document.querySelector('.clone2-horizontal-title');
+      const clone3HorizontalTitle = document.querySelector('.clone3-horizontal-title');
+
+      if (clone1HorizontalTitle) clone1HorizontalTitle.textContent = nextSlideTitle;
+      if (clone2HorizontalTitle) clone2HorizontalTitle.textContent = secondPrevSlideTitle;
+      if (clone3HorizontalTitle) clone3HorizontalTitle.textContent = thirdNextSlideTitle;
+
+      // Update the active slide's details
+      const supTitle2 = slide.querySelector('.supTitle2')?.textContent || '';
+      const supTitle1 = slide.querySelector('.supTitle1')?.textContent || '';
+      const horizontalTitle = slide.querySelector('.horizontal-title')?.textContent || '';
+      const cloneSupTitle2 = document.querySelector('.clone-supTitle2');
+      const cloneSupTitle1 = document.querySelector('.clone-supTitle1');
+      const cloneHorizontalTitle = document.querySelector('.clone-details .clone-horizontal-title');
+      const numbersSwiper = document.querySelector('.clone-numbers');
+      const ariaLabel = slide.getAttribute('aria-label'); // Example: "3 / 6"
+      const [currentIndex, totalSlides] = ariaLabel?.split(' / ').map(Number) || [0, 0];
+
+      if (cloneSupTitle2) cloneSupTitle2.textContent = supTitle2;
+      if (cloneSupTitle1) cloneSupTitle1.textContent = supTitle1;
+      if (cloneHorizontalTitle) cloneHorizontalTitle.textContent = horizontalTitle;
+
+      if (numbersSwiper) {
+        numbersSwiper.innerHTML = `${currentIndex} <hr/> ${totalSlides}`;
+      }
+    }
+  });
 }
 
-// Set initial images, titles, and supTitles
-const setInitialContent = () => {
-  containers.forEach((container, index) => {
-    container.src = images[index % images.length].src;
-  });
+// Call the function initially to ensure the clone details are updated
+updateCloneDetails();
 
-  titles.forEach((title, index) => {
-    title.textContent = images[index % images.length].title;
-  });
+// Add an event listener to update clone details on swiper transition
+const swiperContainer = document.querySelector('.swiper1');
+if (swiperContainer) {
+  swiperContainer.addEventListener('transitionend', updateCloneDetails);
+}
 
-  supTitles1.forEach((supTitle, index) => {
-    supTitle.textContent = images[index % images.length].supTitle1;
-  });
 
-  supTitles2.forEach((supTitle, index) => {
-    supTitle.textContent = images[index % images.length].supTitle2;
-  });
-};
 
-setInitialContent();
-
-// Trigger enter animations
-const triggerEnterAnimations = (element) => {
-  element.classList.remove('scale-up-remove', 'slideRight-remove');
-  element.classList.add('scale-up', 'slideRight');
-};
-
-// Trigger leave animations
-const triggerLeaveAnimations = (element) => {
-  element.classList.remove('scale-up', 'slideRight');
-  element.classList.add('scale-up-remove', 'slideRight-remove');
-};
-
-// Current index for tracking the displayed images
-let currentIndex = 0;
-
-// Function to shift images, titles, and supTitles
-const shift = () => {
-  const nextIndex = (currentIndex + 1) % images.length;
-
-  // Trigger animations for leaving images
-  containers.forEach(triggerLeaveAnimations);
-
-  // Delay updating the images, titles, and supTitles for smooth transitions
-  setTimeout(() => {
-    containers.forEach((container, index) => {
-      container.src = images[(nextIndex + index) % images.length].src;
-    });
-
-    titles.forEach((title, index) => {
-      title.textContent = images[(nextIndex + index) % images.length].title;
-    });
-
-    supTitles1.forEach((supTitle, index) => {
-      supTitle.textContent = images[(nextIndex + index) % images.length].supTitle1;
-    });
-
-    supTitles2.forEach((supTitle, index) => {
-      supTitle.textContent = images[(nextIndex + index) % images.length].supTitle2;
-    });
-
-    // Trigger animations for entering images
-    containers.forEach(triggerEnterAnimations);
-
-    // Update current index
-    currentIndex = nextIndex;
-  }, 500); // Adjust delay for your animation duration
-};
-
-// Call the shift function every 3 seconds
-setInterval(shift, 3000);
 
 
 
@@ -331,7 +400,7 @@ window.addEventListener("scroll", () => {
     console.log("Section About");
     videoRghtToLeft1.style.animation = "move 1s ease-out forwards"; // Apply animation to the first element
     videoRghtToLeft2.style.animation = "move 1s ease-out forwards"; // Apply animation to the second element
-  } 
+  }
 });
 
 
