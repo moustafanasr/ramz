@@ -456,46 +456,71 @@ document.addEventListener('click', (event) => {
 
 
 
-const content = [
-  { src: "img/image1.jpg", title: "يُسر فيلج", history: "12-3-2020", paragraph: "حي السلامة", link: "link1" },
-  { src: "img/image2.jpg", title: "جديل", history: "12-3-2020", paragraph: "حي النرجس", link: "link2" },
-  { src: "img/image3.jpg", title: "ستون كومبليكس", history: "12-3-2020", paragraph: "حي العقيق", link: "link3" },
-  { src: "img/news1.jpeg", title: "رمز 45", history: "12-3-2020", paragraph: "حي الشبيلي", link: "link4" },
-  { src: "img/news2.png", title: "رمز المعالي", history: "12-3-2020", paragraph: "حي المعالي", link: "link5" },
-  { src: "img/news3.png", title: "تَلّ الرمال 2", history: "12-3-2020", paragraph: "حي الرمال", link: "link6" },
-  { src: "img/news4.png", title: "رافــد - مجمع مكتبي", history: "12-3-2020", paragraph: "حي حطين", link: "link7" },
-  { src: "img/RamzPlaceholderDark.svg", title: "رافــد - مجمع مكتبي", history: "12-3-2020", paragraph: "حي حطين", link: "link8" },
-];
+// const content = [
+//   { src: "img/image1.jpg", title: "يُسر فيلج", history: "12-3-2020", paragraph: "حي السلامة", link: "link1" },
+//   { src: "img/image2.jpg", title: "جديل", history: "12-3-2020", paragraph: "حي النرجس", link: "link2" },
+//   { src: "img/image3.jpg", title: "ستون كومبليكس", history: "12-3-2020", paragraph: "حي العقيق", link: "link3" },
+//   { src: "img/news1.jpeg", title: "رمز 45", history: "12-3-2020", paragraph: "حي الشبيلي", link: "link4" },
+//   { src: "img/news2.png", title: "رمز المعالي", history: "12-3-2020", paragraph: "حي المعالي", link: "link5" },
+//   { src: "img/news3.png", title: "تَلّ الرمال 2", history: "12-3-2020", paragraph: "حي الرمال", link: "link6" },
+//   { src: "img/news4.png", title: "رافــد - مجمع مكتبي", history: "12-3-2020", paragraph: "حي حطين", link: "link7" },
+//   { src: "img/RamzPlaceholderDark.svg", title: "رافــد - مجمع مكتبي", history: "12-3-2020", paragraph: "حي حطين", link: "link8" },
+// ];
 
-// Select all video containers
-const videocontainers = document.querySelectorAll('.about-left .div-video');
+// // Select all video containers
+// const videocontainers = document.querySelectorAll('.about-left .div-video');
 
-// Iterate over each video container
-videocontainers.forEach((div, index) => {
-  const img = div.querySelector('img');
-  const title = div.querySelector('.items-details #title');
-  const history = div.querySelector('.items-details #history');
-  const paragraph = document.querySelector('.section-service .about-right .about-line2 #paragraph');
-  const mainTitle = document.querySelector('.section-service .about-right .about-line2 #mainTitle');
+// // Iterate over each video container
+// videocontainers.forEach((div, index) => {
+//   const img = div.querySelector('img');
+//   const title = div.querySelector('.items-details #title');
+//   const history = div.querySelector('.items-details #history');
+//   const paragraph = document.querySelector('.section-service .about-right .about-line2 #paragraph');
+//   const mainTitle = document.querySelector('.section-service .about-right .about-line2 #mainTitle');
 
-  if (img && title && history && paragraph && mainTitle) {
-    let itemIndex = index; // Track the current index
+//   if (img && title && history && paragraph && mainTitle) {
+//     let itemIndex = index; // Track the current index
 
-    // Function to update content based on the current index
-    const updateContent = () => {
-      const item = content[itemIndex];
-      // img.src = item.src;
-      title.textContent = item.title;
-      history.textContent = item.history;
-      paragraph.textContent = item.paragraph;
-      mainTitle.textContent = item.title;
-    };
+//     // Function to update content based on the current index
+//     const updateContent = () => {
+//       const item = content[itemIndex];
+//       // img.src = item.src;
+//       title.textContent = item.title;
+//       history.textContent = item.history;
+//       paragraph.textContent = item.paragraph;
+//       mainTitle.textContent = item.title;
+//     };
 
-    // Initialize the content for the current div
-    updateContent();
-  }
-});
-
-
+//     // Initialize the content for the current div
+//     updateContent();
+//   }
+// });
 
 
+
+
+
+// // Function to update the clone-details based on the active slide
+// function updateCloneDetails2() {
+//   // Select all slides within the swiper
+//   const slides2 = Array.from(document.querySelectorAll('.section-service .swiper2 .swiper-slide'));
+
+//   // Loop through all slides
+//   slides2.forEach((slide, index) => {
+//     // Add a click event listener to each slide
+//     // slide.addEventListener('click', () => {
+//     // Check if the slide has the class 'swiper-slide-active' (meaning it's the active slide)
+//     if (slide.classList.contains('swiper-slide-active')) {
+//       // Update the cloneMainTitle text with the active slide's title
+//       const title = slide.querySelector('.mainTitle')?.textContent.trim();
+//       const paragraph = slide.querySelector('.mainHistory')?.textContent.trim();
+
+//       document.querySelector('.cloneMainTitle').textContent = title || 'No title available';
+//       document.querySelector('.cloneParagraph').textContent = paragraph || 'No history available';
+//     }
+//     // });
+//   });
+// }
+
+// // Initialize the updateCloneDetails2 function when the DOM content is loaded
+// document.addEventListener('DOMContentLoaded', updateCloneDetails2);

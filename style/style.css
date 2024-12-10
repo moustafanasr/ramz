@@ -504,6 +504,7 @@ main .section-sup-projects {
   margin: 0px auto;
   padding: 10rem 0px 0px 0px;
 }
+
 main .section-projects {
   width: 95%;
   /* height: 100vh; */
@@ -538,6 +539,7 @@ main .section-projects .swiper1 {
   position: relative;
   flex-direction: column;
 }
+
 main .section-projects .swiper1 .span {
   width: 1%;
   height: 100%;
@@ -708,10 +710,12 @@ main .section-projects .swiper1 .numbers .left {
   -ms-transform: translateX(0%);
   -o-transform: translateX(0%);
 }
-main .section-projects .swiper1 .numbers .left p{
+
+main .section-projects .swiper1 .numbers .left p {
   color: var(--font-third-color);
 }
-main .section-projects .swiper1 .numbers .left p hr{
+
+main .section-projects .swiper1 .numbers .left p hr {
   width: 90px;
   border: .1px solid var(--background-second-color);
   margin: 0px 10px;
@@ -719,9 +723,8 @@ main .section-projects .swiper1 .numbers .left p hr{
   opacity: .1;
 
 }
-/* d85940 */
 
-main .section-projects .swiper1 .bottom-image{
+main .section-projects .swiper1 .bottom-image {
   position: absolute;
   bottom: 35%;
   left: 0px;
@@ -737,228 +740,371 @@ main .section-projects .swiper1 .bottom-image{
   -ms-transition: all 1s;
   -o-transition: all 1s;
 }
-main .section-projects .swiper1 .bottom-image .clone3-horizontal-title{
+
+main .section-projects .swiper1 .bottom-image .clone3-horizontal-title {
   margin-left: 10%;
 }
 
 /* Start section projects Media Query */
 /* Extra small devices (Less than phone 430) */
 @media only screen and (max-width: 430px) {
-
-  main .section-projects .scroll-horizontal .container-2,
-  main .section-projects .scroll-horizontal .container-1,
-  main .section-projects .scroll-horizontal .container-3 {
+  main .section-projects .swiper1 .span:nth-child(1) {
+    background-color: white;
+    left: 20%;
+    height: 45%;
     display: none;
   }
 
-  main .section-projects .scroll-horizontal .container-4 {
+  main .section-projects .swiper1 .span:nth-child(2) {
+    background-color: white;
+    left: 42%;
+    height: 45%;
+    display: none;
+  }
+
+  main .section-projects .swiper1 .span:nth-child(3) {
+    background-color: white;
+    left: 33%;
+    height: 70%;
+  }
+
+  main .section-projects .swiper1 .projectImg {
     width: 100%;
-    height: 750px;
+    height: 250PX;
+    position: relative;
   }
 
-  main .section-projects .scroll-horizontal .container-4 .details {
-    transform: translate(0%, 110%);
-    -webkit-transform: translate(0%, 110%);
-    -moz-transform: translate(0%, 110%);
-    -ms-transform: translate(0%, 110%);
-    -o-transform: translate(0%, 110%);
+  main .section-projects .swiper1 .swiper-slide-active .projectImg {
+    height: 450px !important;
+    width: 100% !important;
   }
 
-  main .section-projects .scroll-horizontal .container-4 .details .horizontal-title {
+  main .section-projects .swiper1 .clone-details {
+    display: block;
+    position: absolute;
+    bottom: 10%;
+    right: 0%;
+    width: 50%;
+    transform: translate(0%, 0%);
+    -webkit-transform: translate(0%, 0%);
+    -moz-transform: translate(0%, 0%);
+    -ms-transform: translate(0%, 0%);
+    -o-transform: translate(0%, 0%);
+  }
+
+  main .section-projects .swiper1 .clone-details .div-line-button {
+    font-size: 1rem;
+    text-wrap: nowrap;
+  }
+
+  main .section-projects .swiper1 .clone-details .clone-horizontal-title {
     font-size: 2rem;
   }
 
-  main .section-projects .scroll-horizontal .container-4 .details .line-button {
-    font-size: 1rem;
+  main .section-projects .swiper1 .bottom-image {
+    position: absolute;
+    bottom: 60%;
+    left: 0px;
+    justify-content: space-between;
+    width: 35%;
+    padding: 0px 20px;
+    font-size: 1.2rem;
+    /* background-color: red; */
   }
 
-  main .section-projects .scroll-horizontal .div-img {
-    width: 100%;
+  main .section-projects .swiper1 .bottom-image .clone3-horizontal-title {
+    /* margin-left: 10%; */
+    display: none;
   }
 
-  main .section-projects .scroll-horizontal .container-4 {
-    height: 500px;
-
-  }
-
-  main .section-projects .scroll-horizontal .container-4 .div-img {
-    height: 500px;
+  main .section-projects .swiper1 .bottom-image .clone2-horizontal-title {
+    /* margin-left: 10%; */
+    display: none;
   }
 }
 
 /* Extra small devices (phones, 600px and 430) */
 @media only screen and (min-width: 430px) and (max-width: 600px) {
-
-  main .section-projects .scroll-horizontal .container-2,
-  main .section-projects .scroll-horizontal .container-1,
-  main .section-projects .scroll-horizontal .container-3 {
+  main .section-projects .swiper1 .span:nth-child(1) {
+    background-color: white;
+    left: 20%;
+    height: 45%;
     display: none;
   }
 
-  main .section-projects .scroll-horizontal .container-4 {
+  main .section-projects .swiper1 .span:nth-child(2) {
+    background-color: white;
+    left: 42%;
+    height: 45%;
+    display: none;
+  }
+
+  main .section-projects .swiper1 .span:nth-child(3) {
+    background-color: white;
+    left: 33%;
+    height: 70%;
+  }
+
+  main .section-projects .swiper1 .projectImg {
     width: 100%;
-    height: 750px;
+    height: 250PX;
+    position: relative;
   }
 
-  main .section-projects .scroll-horizontal .container-4 .details {
-    transform: translate(0%, 110%);
-    -webkit-transform: translate(0%, 110%);
-    -moz-transform: translate(0%, 110%);
-    -ms-transform: translate(0%, 110%);
-    -o-transform: translate(0%, 110%);
+  main .section-projects .swiper1 .swiper-slide-active .projectImg {
+    height: 450px !important;
+    width: 100% !important;
   }
 
-  main .section-projects .scroll-horizontal .container-4 .details .horizontal-title {
-    font-size: 2rem;
+  main .section-projects .swiper1 .clone-details {
+    display: block;
+    position: absolute;
+    bottom: 10%;
+    right: 0%;
+    width: 50%;
+    transform: translate(0%, 0%);
+    -webkit-transform: translate(0%, 0%);
+    -moz-transform: translate(0%, 0%);
+    -ms-transform: translate(0%, 0%);
+    -o-transform: translate(0%, 0%);
   }
 
-  main .section-projects .scroll-horizontal .container-4 .details .line-button {
+  main .section-projects .swiper1 .clone-details .div-line-button {
     font-size: 1rem;
   }
 
-  main .section-projects .scroll-horizontal .div-img {
-    width: 100%;
+  main .section-projects .swiper1 .clone-details .clone-horizontal-title {
+    font-size: 2rem;
   }
 
-  main .section-projects .scroll-horizontal .container-4 {
-    height: 500px;
-
+  main .section-projects .swiper1 .bottom-image {
+    position: absolute;
+    bottom: 58%;
+    left: 0px;
+    justify-content: space-between;
+    width: 35%;
+    padding: 0px 20px;
+    font-size: 1.5rem;
+    /* background-color: red; */
   }
 
-  main .section-projects .scroll-horizontal .container-4 .div-img {
-    height: 500px;
+  main .section-projects .swiper1 .bottom-image .clone3-horizontal-title {
+    /* margin-left: 10%; */
+    display: none;
+  }
+
+  main .section-projects .swiper1 .bottom-image .clone2-horizontal-title {
+    /* margin-left: 10%; */
+    display: none;
   }
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 601px) and (max-width: 767px) {
+  main .section-projects .swiper1 .span:nth-child(1) {
+    background-color: white;
+    left: 20%;
+    height: 45%;
 
-  main .section-projects .scroll-horizontal .container-2,
-  main .section-projects .scroll-horizontal .container-1 {
+  }
+
+  main .section-projects .swiper1 .span:nth-child(2) {
+    background-color: white;
+    left: 42%;
+    height: 45%;
     display: none;
   }
 
-  main .section-projects .scroll-horizontal .container-3 {
-    width: 50%;
-    height: 400px;
+  main .section-projects .swiper1 .span:nth-child(3) {
+    background-color: white;
+    left: 59%;
+    height: 100%;
   }
 
-  main .section-projects .scroll-horizontal .container-4 {
-    width: 50%;
-    height: 750px;
-  }
-
-  main .section-projects .scroll-horizontal .container-4 .details .horizontal-title {
-    font-size: 2rem;
-  }
-
-  main .section-projects .scroll-horizontal .container-4 .details .line-button {
-    font-size: 1rem;
-  }
-
-  main .section-projects .scroll-horizontal .div-img {
+  main .section-projects .swiper1 .projectImg {
     width: 100%;
+    height: 300PX;
+    position: relative;
   }
 
-  main .section-projects .scroll-horizontal .container-3 .div-img {
-    height: 250px;
-
+  main .section-projects .swiper1 .swiper-slide-active .projectImg {
+    height: 450px !important;
+    width: 100% !important;
   }
 
-  main .section-projects .scroll-horizontal .container-4 {
-    height: 500px;
-
+  main .section-projects .swiper1 .clone-details {
+    display: block;
+    position: absolute;
+    bottom: 0px;
+    right: 0%;
+    width: 50%;
+    transform: translate(0%, 0%);
+    -webkit-transform: translate(0%, 0%);
+    -moz-transform: translate(0%, 0%);
+    -ms-transform: translate(0%, 0%);
+    -o-transform: translate(0%, 0%);
   }
 
-  main .section-projects .scroll-horizontal .container-4 .div-img {
-    height: 500px;
+  main .section-projects .swiper1 .bottom-image {
+    position: absolute;
+    bottom: 52%;
+    left: 0px;
+    justify-content: space-between;
+    width: 60%;
+    padding: 0px 20px;
+    font-size: 1.5rem;
+    /* background-color: red; */
+  }
+
+  main .section-projects .swiper1 .bottom-image .clone3-horizontal-title {
+    /* margin-left: 10%; */
+    display: none;
+  }
+
+  main .section-projects .swiper1 .bottom-image .clone2-horizontal-title {
+    /* margin-left: 10%; */
+    /* display: none; */
   }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) and (max-width: 991px) {
+  main .section-projects .swiper1 .span:nth-child(1) {
+    background-color: white;
+    left: 20%;
+    height: 45%;
 
-  main .section-projects .scroll-horizontal .container-2,
-  main .section-projects .scroll-horizontal .container-1 {
+  }
+
+  main .section-projects .swiper1 .span:nth-child(2) {
+    background-color: white;
+    left: 42%;
+    height: 45%;
     display: none;
   }
 
-  main .section-projects .scroll-horizontal .container-3 {
-    width: 50%;
-    height: 400px;
+  main .section-projects .swiper1 .span:nth-child(3) {
+    background-color: white;
+    left: 59%;
+    height: 100%;
   }
 
-  main .section-projects .scroll-horizontal .container-4 {
-    width: 50%;
-    height: 750px;
-  }
-
-  main .section-projects .scroll-horizontal .div-img {
+  main .section-projects .swiper1 .projectImg {
     width: 100%;
+    height: 300PX;
+    position: relative;
   }
 
-  main .section-projects .scroll-horizontal .container-3 .div-img {
-    height: 250px;
-
+  main .section-projects .swiper1 .swiper-slide-active .projectImg {
+    height: 450px !important;
+    width: 100% !important;
   }
 
-  main .section-projects .scroll-horizontal .container-4 {
-    height: 500px;
-
+  main .section-projects .swiper1 .clone-details {
+    display: block;
+    position: absolute;
+    bottom: 0px;
+    right: 0%;
+    width: 50%;
+    transform: translate(0%, 0%);
+    -webkit-transform: translate(0%, 0%);
+    -moz-transform: translate(0%, 0%);
+    -ms-transform: translate(0%, 0%);
+    -o-transform: translate(0%, 0%);
   }
 
-  main .section-projects .scroll-horizontal .container-4 .div-img {
-    height: 500px;
+  main .section-projects .swiper1 .bottom-image {
+    position: absolute;
+    bottom: 50%;
+    left: 0px;
+    justify-content: space-between;
+    width: 60%;
+    padding: 0px 30px;
+    /* background-color: red; */
   }
+
+  main .section-projects .swiper1 .bottom-image .clone3-horizontal-title {
+    /* margin-left: 10%; */
+    display: none;
+  }
+
+  main .section-projects .swiper1 .bottom-image .clone2-horizontal-title {
+    /* margin-left: 10%; */
+    /* display: none; */
+  }
+
+
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) and (max-width: 1199px) {
+@media only screen and (min-width: 992px) and (max-width: 1299px) {
 
-  main .section-projects .scroll-horizontal .container-2,
-  main .section-projects .scroll-horizontal .container-3 {
-    width: 25%;
-    height: 400px;
+  main .section-projects .swiper1 .span:nth-child(1) {
+    background-color: white;
+    left: 20%;
+    height: 45%;
+
   }
 
-  main .section-projects .scroll-horizontal .container-1 {
-    width: 20%;
-    height: 400px;
+  main .section-projects .swiper1 .span:nth-child(2) {
+    background-color: white;
+    left: 42%;
+    height: 45%;
+    display: none;
   }
 
-  main .section-projects .scroll-horizontal .container-4 {
-    width: 30%;
-    height: 750px;
+  main .section-projects .swiper1 .span:nth-child(3) {
+    background-color: white;
+    left: 59%;
+    height: 100%;
   }
 
-  main .section-projects .scroll-horizontal .div-img {
+  main .section-projects .swiper1 .projectImg {
     width: 100%;
+    height: 300PX;
+    position: relative;
   }
+
+  main .section-projects .swiper1 .clone-details {
+    display: block;
+    position: absolute;
+    bottom: 0px;
+    right: 43%;
+    width: 25%;
+    transform: translate(0%, 0%);
+    -webkit-transform: translate(0%, 0%);
+    -moz-transform: translate(0%, 0%);
+    -ms-transform: translate(0%, 0%);
+    -o-transform: translate(0%, 0%);
+  }
+
+  main .section-projects .swiper1 .bottom-image {
+    position: absolute;
+    bottom: 50%;
+    left: 0px;
+    justify-content: space-between;
+    width: 60%;
+    padding: 0px 30px;
+    /* background-color: red; */
+  }
+
+  main .section-projects .swiper1 .bottom-image .clone3-horizontal-title {
+    /* margin-left: 10%; */
+    display: none;
+  }
+
+  main .section-projects .swiper1 .bottom-image .clone2-horizontal-title {
+    margin-left: 10%;
+    /* display: none; */
+  }
+
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {
+/* @media only screen and (min-width: 1300px) {
 
-  main .section-projects .scroll-horizontal .container-2,
-  main .section-projects .scroll-horizontal .container-3 {
-    width: 25%;
-    height: 400px;
-  }
 
-  main .section-projects .scroll-horizontal .container-1 {
-    width: 20%;
-    height: 400px;
-  }
-
-  main .section-projects .scroll-horizontal .container-4 {
-    width: 30%;
-    height: 750px;
-  }
-
-  main .section-projects .scroll-horizontal .div-img {
-    width: 100%;
-  }
-}
+} */
 
 /* End section projects Media Query */
 
@@ -1911,6 +2057,9 @@ main .section-service .about-left .div-video div:nth-child(2) p:nth-child(2) {
 
 main .section-service .about-left .div-video .video-container img {
   height: 100%;
+}
+main .section-service .about-left .div-video .items-details .mainParagraph {
+  display: none;
 }
 
 .swiper2 {
