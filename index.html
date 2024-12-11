@@ -30,7 +30,7 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
     <!-- Start Main  -->
-    <main>
+    <main class="smooth-scroll-wrapper">
       <!-- Start Section Main Header  -->
       <section class="section-main-header">
         <div class="main-header-scroll">
@@ -699,12 +699,13 @@
     </main>
     <!-- End Main  -->
     <script>
+
       const swiper1 = new Swiper('.swiper1', {
         // Optional parameters
         direction: 'horizontal',
         loop: true,
         speed: 1000,
-        slidesPerView: 1,
+        slidesPerView: 3.5,
         spaceBetween: 0,
         autoplay: {
           delay: 2500,
@@ -736,12 +737,14 @@
             spaceBetween: 0
           },
           // when window width is >= 1000px
-          1300: {
-            slidesPerView: 3.5,
-            spaceBetween: 0
-          }
-        }
+          1400: {
+            slidesPerView: 4,
+            spaceBetween: 0,
+          },
+        },
+
       });
+
 
 
       // const swiper2 = new Swiper('.swiper2', {

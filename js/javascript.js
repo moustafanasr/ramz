@@ -1,3 +1,40 @@
+document.addEventListener("DOMContentLoaded", () => {
+  const body = document.body;
+  const scrollWrap = document.querySelector(".smooth-scroll-wrapper");
+  
+  if (!scrollWrap) {
+    console.error("Element with class 'smooth-scroll-wrapper' not found.");
+    return;
+  }
+
+  const height = scrollWrap.getBoundingClientRect().height - 1;
+  // console.log(height)
+  const speed = 0.02;
+
+  let offset = 0;
+
+  // Set the body's height to enable native scrolling
+  body.style.height = `${Math.floor(height)}px`;
+
+  function smoothScroll() {
+    // Calculate the interpolation value for the scroll position
+    offset += (window.pageYOffset - offset) * speed;
+
+    // Apply a smooth translation to the wrapper
+    const scroll = `translateY(-${offset}px) translateZ(0)`;
+    scrollWrap.style.transform = scroll;
+
+    // Keep animating using requestAnimationFrame
+    requestAnimationFrame(smoothScroll);
+  }
+
+  // Start the smooth scroll animation
+  smoothScroll();
+});
+
+
+
+
 // Select the elements
 const mainHeaderScroll = document.querySelector('.section-main-header .main-header-scroll');
 const supHeader = document.querySelector('.section-main-sup-header .section-main-header');
